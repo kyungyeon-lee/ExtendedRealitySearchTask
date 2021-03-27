@@ -1,0 +1,12 @@
+/.vs
+/UWPTempPath
+/Library
+/*.csproj
+/*.sln
+/Temp
+/obj
+/devBuilds
+/Assets/~
+/Builds
+/Assets/MixedRealityToolkit.Generated
+/Logs
