@@ -8,4 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SimpleWebXR/Scenes/MRTK-HandInteraction.unity
     guid: 97f89240430c7d34080cf9510ef5f278
-  m_configObjects: {}
+  m_configObjects:
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: b2e6c354af35b244e9cfd197a21007be,
+      type: 2}

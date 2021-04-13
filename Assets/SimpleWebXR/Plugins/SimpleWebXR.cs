@@ -551,6 +551,8 @@ namespace Rufus31415.WebXR
             inputSource.Rotation = ToUnityRotation(_dataArray[floatStartId + 3], _dataArray[floatStartId + 4], _dataArray[floatStartId + 5], _dataArray[floatStartId + 6]);
             inputSource.IsPositionTracked = (_byteArray[byteStartId + 0] != 0);
 
+
+
             var eventId = (int)inputSource.Handedness + 1;
             var mask = _byteArray[eventId];
             if (mask != 0)
@@ -602,6 +604,7 @@ namespace Rufus31415.WebXR
         // Raise input sources select and squeeze events
         private static void RaiseInputSourceEvent(byte mask, WebXRInputSourceEventTypes type, WebXRInputEvent webxrInputEvent, UnityEvent unityEvent, WebXRInputSource inputSource)
         {
+            
             if (((WebXRInputSourceEventTypes)mask & type) == type)
             {
                 switch (type)
