@@ -4,16 +4,32 @@ using System.Text;
 using System.Collections.Generic;
 using System.IO;
 
+
 public class Activated : MonoBehaviour
 {
     public GameObject cube, quad, answer;
 
     public Color[] list_color = {Color.black, Color.blue, Color.cyan, Color.grey, Color.green, Color.magenta, Color.white, Color.yellow};
 
+    public static float timestamp;
+    public static string parti_id;
+    public static string condition;
+    public static int target_id = 0;
+    public static string target_state = "searching";
+    public static Vector3 target_position;
+    public static string mid_target_state = "mid searching";
+    //public static Vector3 mid_target_position;
+    public static Vector3 hand_position;
+    public static Vector3 hand_rotation;
+    public static Vector3 laser_position;
+    public static float distance_btw_target;
+    public static float distance_btw_mid;
+    public static int click_num;
+    public static float fps;
 
 
 
-    public float[] list_angle = { 0,22.5f,45,67.5f,90, 112.5f,135, 157.5f,180,202.5f,225, 247.5f,270, 292.5f, 315, 337.5f,360 };
+    public float[] list_angle = { 0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340 };
 
     //public float[] list_angle = { 0,  45, 90,  135, 180,  225,  270,  315, 360 };
 
@@ -65,7 +81,7 @@ public class Activated : MonoBehaviour
         //}
         for (int i = 1; i <= 15; i++)
         {
-            int rand = Random.Range(0, 17);
+            int rand = Random.Range(0, 16);
             rand = noCollideAngle(rand);
             var pos = RandomCircle(new Vector3(0, 0, 0), 0.5f, list_angle[rand]);
             var x = Mathf.Cos(list_angle[i]) * 1; 
@@ -206,7 +222,10 @@ public class Activated : MonoBehaviour
     }
     void Update()
     {
-        //hand.transform.Rotate(0, 100 * Time.deltaTime, 0);
+        Vector3 newPos = GameObject.Find("MixedRealityPlayspace/Main Camera/Pivot").transform.TransformPoint(Vector3.zero);
+        //PID	Timestamp	Trial	Touched Ball	Position	Rotation	Distance (Calc by Position)	Distance (Calc by Rotation)	Interaction Number	Interaction Type	Device	Head Tracking														
+        Debug.Log("newPos: " + newPos);
+
     }
 
 
